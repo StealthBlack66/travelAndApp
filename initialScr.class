@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Navigate to the first screen when Box 1 is clicked
-                navigateToScreen1();
+                navigateToTravelListScreen();
             }
         });
 
@@ -26,19 +26,42 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Navigate to the second screen when Box 2 is clicked
-                navigateToScreen2();
+                navigateToTravelAddScreen();
             }
         });
     }
 
+    private void createNewBox() {
+        FrameLayout newBox = new FrameLayout(this);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                getResources().getDimensionPixelSize(R.dimen.box_height)
+        );
+        layoutParams.setMargins(0, getResources().getDimensionPixelSize(R.dimen.box_margin), 0, 0);
+        newBox.setLayoutParams(layoutParams);
+        newBox.setBackgroundColor(getResources().getColor(R.color.new_box_color));
+        newBox.setClickable(true);
+
+        container.addView(newBox);
+    }
+
     // Navigate to the first screen
     private void navigateToTravelAddScreen() {
-        Intent intent = new Intent(this, TravelAddActivity.class); // Assuming TravelAddActivity is the activity for "travelAdd" screen
-        startActivity(intent);
+        Intent intent = new Intent(this, TravelAddActivity.class);
+        startActivityForResult(intent, 1);  // Request code 1 for "travelAdd" screen
     }
     // Navigate to the second screen
     private void navigateToTravelListScreen() {
         Intent intent = new Intent(this, TravelListActivity.class); // Assuming TravelAddActivity is the activity for "travelAdd" screen
         startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            // Create a new box when returning from "travelAdd" screen
+            createNewBox();
+        }
     }
 }
