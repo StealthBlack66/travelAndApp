@@ -1,0 +1,32 @@
+<!-- Layout for TravelScheduleActivity -->
+<!-- Display travel city and period -->
+<TextView
+    android:id="@+id/travelDetailsTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Travel Details"
+    android:padding="16dp" />
+
+<!-- Button to navigate to the travel schedule screen -->
+<Button
+    android:id="@+id/scheduleButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Travel Schedule"
+    android:padding="16dp" />
+
+<!-- Button to navigate to the checklist screen -->
+<Button
+    android:id="@+id/checklistButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Checklist"
+    android:padding="16dp" />
+
+<!-- Button to navigate to the exchange rate screen -->
+<Button
+    android:id="@+id/exchangeRateButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Exchange Rate"
+    android:padding="16dp" />

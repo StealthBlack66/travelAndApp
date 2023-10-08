@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, 1);  // Request code 1 for "travelAdd" screen
     }
     // Navigate to the second screen
-    private void navigateToTravelListScreen() {
-        Intent intent = new Intent(this, TravelListActivity.class); // Assuming TravelAddActivity is the activity for "travelAdd" screen
+    private void navigateToTravelSchScreen() {
+        Intent intent = new Intent(this, TravelScheduleActivity.java); // Assuming TravelAddActivity is the activity for "travelAdd" screen
         startActivity(intent);
     }
 
