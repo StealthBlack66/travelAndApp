@@ -1,32 +1,105 @@
-<!-- Layout for TravelScheduleActivity -->
-<!-- Display travel city and period -->
-<TextView
-    android:id="@+id/travelDetailsTextView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Travel Details"
-    android:padding="16dp" />
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".TravelScheduleActivity">
 
-<!-- Button to navigate to the travel schedule screen -->
-<Button
-    android:id="@+id/scheduleButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Travel Schedule"
-    android:padding="16dp" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp">
 
-<!-- Button to navigate to the checklist screen -->
-<Button
-    android:id="@+id/checklistButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Checklist"
-    android:padding="16dp" />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여행일정" />
+    </FrameLayout>
 
-<!-- Button to navigate to the exchange rate screen -->
-<Button
-    android:id="@+id/exchangeRateButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Exchange Rate"
-    android:padding="16dp" />
+    <FrameLayout
+        android:layout_width="125dp"
+        android:layout_height="59dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="140dp"
+            android:layout_height="38dp">
+
+            <EditText
+                android:id="@+id/editTextDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="date" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="145dp"
+            android:layout_height="40dp">
+
+            <EditText
+                android:id="@+id/editTextDate2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="date" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/box1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여행 일정표" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/box2"
+            android:layout_width="192"
+            android:layout_height="208dp">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="체크리스트" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/box3"
+            android:layout_width="192dp"
+            android:layout_height="208dp">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나의 도시 환율정보" />
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

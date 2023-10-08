@@ -39,4 +39,3 @@ public class TravelAddActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
-

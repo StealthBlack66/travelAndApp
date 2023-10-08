@@ -1,7 +1,7 @@
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Navigate to the first screen when Box 1 is clicked
-                navigateToTravelListScreen();
+                navigateToTravelSchScreen();
             }
         });
 
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void createNewBox() {
         FrameLayout newBox = new FrameLayout(this);
+        LinearLayout container = findViewById(R.id.container);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 getResources().getDimensionPixelSize(R.dimen.box_height)
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
     // Navigate to the second screen
     private void navigateToTravelSchScreen() {
-        Intent intent = new Intent(this, TravelScheduleActivity.java); // Assuming TravelAddActivity is the activity for "travelAdd" screen
+        Intent intent = new Intent(this, TravelScheduleActivity.class); // Assuming TravelAddActivity is the activity for "travelAdd" screen
         startActivity(intent);
     }
 
