@@ -1,15 +1,13 @@
 package com.example.fusionproject;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.widget.Button;
+import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class TravelScheduleActivity extends AppCompatActivity {
-
-    private String cityName, travelPeriod;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -17,21 +15,19 @@ public class TravelScheduleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_travel_schedule);
 
         // Get the travel details from intent
-        Intent intent = getIntent();
-        if (intent != null) {
-            cityName = intent.getStringExtra("cityName");
-            travelPeriod = intent.getStringExtra("travelPeriod");
-        }
+        String cityName = getIntent().getStringExtra("cityName");
+        String travelPeriod1 = getIntent().getStringExtra("travelPeriod1");
+        String travelPeriod2 = getIntent().getStringExtra("travelPeriod2");
 
         // Display the travel details
-        // You can set these values to appropriate TextViews in your layout
-        // For simplicity, we'll just print them to console
-        System.out.println("City: " + cityName);
-        System.out.println("Travel Period: " + travelPeriod);
+        TextView infoDest = findViewById(R.id.infoDest);
+        TextView infoDate = findViewById(R.id.infoDate);
+        infoDest.setText(cityName);
+        infoDate.setText(travelPeriod1 + "~" + travelPeriod2);
 
-        FrameLayout box1 = findViewById(R.id.box1);
-        FrameLayout box2 = findViewById(R.id.box2);
-        FrameLayout box3 = findViewById(R.id.box3);
+        Button box1 = findViewById(R.id.box1);
+        Button box2 = findViewById(R.id.box2);
+        Button box3 = findViewById(R.id.box3);
 
         box1.setOnClickListener(new View.OnClickListener() {
             @Override
