@@ -1,0 +1,103 @@
+package com.example.fusionproject;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class ScheduleDisplayActivity extends AppCompatActivity {
+
+    private LinearLayout chapterContainer;
+    private List<Chapter> chaptersList = new ArrayList<>();
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_schedule_display);
+        setTitle("일정표");
+
+        String cityName = getIntent().getStringExtra("cityName");
+        String travelPeriod1 = getIntent().getStringExtra("travelPeriod1");
+        String travelPeriod2 = getIntent().getStringExtra("travelPeriod2");
+
+        TextView infoDest = findViewById(R.id.infoDest);
+        TextView infoDate = findViewById(R.id.infoDate);
+        infoDest.setText(cityName);
+        infoDate.setText(travelPeriod1 + "~" + travelPeriod2);
+
+        chapterContainer = findViewById(R.id.chapterContainer);
+
+        Button addChapterButton = findViewById(R.id.addChapterButton);
+        addChapterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addChapter();
+            }
+        });
+    }
+
+    private void addChapter() {
+        // Inflate the layout for a new chapter
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View chapterView = inflater.inflate(R.layout.chapter_layout, null);
+
+        // Find views within the chapter layout
+        EditText placeEditText = chapterView.findViewById(R.id.placeEditText);
+        EditText timeEditText = chapterView.findViewById(R.id.timeEditText);
+        EditText memoEditText = chapterView.findViewById(R.id.memoEditText);
+
+        // Get the user input from the EditTexts
+        String place = placeEditText.getText().toString();
+        String time = timeEditText.getText().toString();
+        String memo = memoEditText.getText().toString();
+
+        // Set the user input in the chapter layout
+        TextView placeTextView = chapterView.findViewById(R.id.placeTextView);
+        TextView timeTextView = chapterView.findViewById(R.id.timeTextView);
+        TextView memoTextView = chapterView.findViewById(R.id.memoTextView);
+
+        placeTextView.setText("Place: " + place);
+        timeTextView.setText("Time: " + time);
+        memoTextView.setText("Memo: " + memo);
+
+        // Add the new chapter to the chapter container
+        chapterContainer.addView(chapterView);
+        Chapter chapter = new Chapter(place, time, memo);
+        chaptersList.add(chapter);
+
+        // Sort the chaptersList based on time
+        Collections.sort(chaptersList, new Comparator<Chapter>() {
+            @Override
+            public int compare(Chapter chapter1, Chapter chapter2) {
+                // Compare based on time
+                return chapter1.getTime().compareTo(chapter2.getTime());
+            }
+        });
+
+        // Clear the chapterContainer to update the display
+        chapterContainer.removeAllViews();
+
+        // Display the chapters in order
+        for (Chapter chapterItem : chaptersList) {
+            View sortedChapterView = inflater.inflate(R.layout.chapter_layout, null);
+
+            placeTextView.setText("Place: " + chapterItem.getPlace());
+            timeTextView.setText("Time: " + chapterItem.getTime());
+            memoTextView.setText("Memo: " + chapterItem.getMemo());
+
+            chapterContainer.addView(sortedChapterView);
+        }
+    }
+
+}
+

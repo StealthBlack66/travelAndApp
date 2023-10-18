@@ -1,0 +1,11 @@
+package com.example.fusionproject;
+
+import java.util.Comparator;
+
+public class ChapterComparator implements Comparator<Chapter> {
+    @Override
+    public int compare(Chapter chapter1, Chapter chapter2) {
+        // Compare based on time
+        return chapter1.getTime().compareTo(chapter2.getTime());
+    }
+}

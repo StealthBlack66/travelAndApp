@@ -1,8 +1,4 @@
-import android.os.Bundle;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import androidx.appcompatpackage com.example.fusionproject;
+package com.example.fusionproject;
 
 import android.content.Intent;
 import android.os.Bundle;

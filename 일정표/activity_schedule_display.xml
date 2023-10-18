@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Title: Destination and Date -->
+    <TextView
+        android:id="@+id/infoDest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Destination: [Destination Name]" />
+
+    <TextView
+        android:id="@+id/infoDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date: [Travel Period]" />
+
+    <!-- Button to navigate to "My Places" screen -->
+    <Button
+        android:id="@+id/navigateMyPlacesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="지도에서 위치 보기" />
+
+    <!-- Chapter Container -->
+    <LinearLayout
+        android:id="@+id/chapterContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+    <!-- Button to add a new chapter -->
+    <Button
+        android:id="@+id/addChapterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ 일정 추가하기" />
+
+</LinearLayout>

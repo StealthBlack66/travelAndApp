@@ -1,0 +1,27 @@
+package com.example.fusionproject;
+
+public class Chapter {
+    private String place;
+    private String time;
+    private String memo;
+
+    public Chapter(String place, String time, String memo) {
+        this.place = place;
+        this.time = time;
+        this.memo = memo;
+    }
+
+    // Getter methods
+    public String getPlace() {
+        return place;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public String getMemo() {
+        return memo;
+    }
+}
+

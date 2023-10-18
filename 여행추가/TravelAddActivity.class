@@ -33,7 +33,6 @@ public class TravelAddActivity extends AppCompatActivity {
                 String period1 = periodEditText1.getText().toString();
                 String period2 = periodEditText2.getText().toString();
 
-
                 // Add the entered details to MainActivity
                 addToMainActivity(city, period1, period2);
 
