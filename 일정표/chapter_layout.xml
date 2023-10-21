@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <!-- Place -->
+
     <TextView
         android:id="@+id/placeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Place:" />
 
+    <!-- Time -->
+
     <EditText
         android:id="@+id/placeEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="338dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/placeTextView"
         android:inputType="text" />
 
-    <!-- Time -->
     <TextView
         android:id="@+id/timeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/placeTextView"
         android:text="Time:" />
 
     <EditText
         android:id="@+id/timeEditText"
-        android:layout_width="match_parent"
+        android:layout_width="334dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/timeTextView"
         android:inputType="text" />
 
     <!-- Memo -->
@@ -36,6 +43,7 @@
         android:id="@+id/memoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/timeTextView"
         android:text="Memo:" />
 
     <EditText
@@ -43,6 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
+        android:layout_toRightOf="@id/memoTextView"
         android:lines="3" />
 
     <!-- Button to add a new schedule -->
@@ -50,7 +59,8 @@
         android:id="@+id/addScheduleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_below="@id/memoEditText"
+        android:layout_centerHorizontal="true"
         android:text="저장" />
 
-</LinearLayout>
+</RelativeLayout>
