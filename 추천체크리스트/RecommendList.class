@@ -1,0 +1,104 @@
+package com.example.fusionproject;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+
+public class RecommendList extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.recommend_check);
+        setTitle("추천체크리스트");
+
+        Button plane = findViewById(R.id.button);
+        Button life = findViewById(R.id.button2);
+        Button cosmetic = findViewById(R.id.button3);
+        Button hair = findViewById(R.id.button4);
+        Button it = findViewById(R.id.button5);
+        Button wash = findViewById(R.id.button6);
+        Button clothes = findViewById(R.id.button7);
+
+
+        plane.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Plane plane = new Plane();
+                transaction.replace(R.id.recommendFrame,plane);
+                transaction.commit();
+
+            }
+        });
+
+        life.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Life life = new Life();
+                transaction.replace(R.id.recommendFrame,life);
+                transaction.commit();
+
+            }
+        });
+
+        cosmetic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Cosmetic cosmetic = new Cosmetic();
+                transaction.replace(R.id.recommendFrame,cosmetic);
+                transaction.commit();
+
+            }
+        });
+
+        hair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Hair hair = new Hair();
+                transaction.replace(R.id.recommendFrame,hair);
+                transaction.commit();
+
+            }
+        });
+
+        it.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                IT it = new IT();
+                transaction.replace(R.id.recommendFrame,it);
+                transaction.commit();
+
+            }
+        });
+
+        wash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Wash wash = new Wash();
+                transaction.replace(R.id.recommendFrame,wash);
+                transaction.commit();
+
+            }
+        });
+
+        clothes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Clothes clothes = new Clothes();
+                transaction.replace(R.id.recommendFrame,clothes);
+                transaction.commit();
+
+            }
+        });
+    }
+}
