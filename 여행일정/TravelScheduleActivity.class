@@ -35,7 +35,7 @@ public class TravelScheduleActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Navigate to the travel schedule screen
-                navigateToTravelSchedule();
+                navigateToTravelSchedule(cityName, travelPeriod1, travelPeriod2);
             }
         });
 
@@ -56,13 +56,17 @@ public class TravelScheduleActivity extends AppCompatActivity {
         });
     }
 
-    private void navigateToTravelSchedule() {
+    private void navigateToTravelSchedule(String cityName, String travelPeriod1, String travelPeriod2) {
         Intent intent = new Intent(this, ScheduleDisplayActivity.class);
+        intent.putExtra("cityName",cityName);
+        intent.putExtra("travelPeriod1",travelPeriod1);
+        intent.putExtra("travelPeriod2",travelPeriod2);
         startActivity(intent);
     }
 
     private void navigateToChecklist() {
-        // Add your logic for navigating to the checklist screen here
+        Intent intent = new Intent(this, CheckList.class);
+        startActivity(intent);
     }
 
     private void navigateToCountrySelection() {

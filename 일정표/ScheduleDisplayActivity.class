@@ -22,6 +22,15 @@ public class ScheduleDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_schedule_display);
         setTitle("일정표");
 
+        String cityName = getIntent().getStringExtra("cityName");
+        String travelPeriod1 = getIntent().getStringExtra("travelPeriod1");
+        String travelPeriod2 = getIntent().getStringExtra("travelPeriod2");
+
+        // Display the travel details
+        TextView infoDest = findViewById(R.id.textView1);
+        TextView infoDate = findViewById(R.id.textView2);
+        infoDest.setText(cityName);
+        infoDate.setText(travelPeriod1 + "~" + travelPeriod2);
 
         Button day1 = findViewById(R.id.Day1);
         Button day2 = findViewById(R.id.Day2);
@@ -87,14 +96,13 @@ public class ScheduleDisplayActivity extends AppCompatActivity {
         EditText timeEditText = chapterMakeView.findViewById(R.id.timeEditText);
         EditText memoEditText = chapterMakeView.findViewById(R.id.memoEditText);
 
-        // Get the user input from the EditTexts
-        String place = placeEditText.getText().toString();
-        String time = timeEditText.getText().toString();
-        String memo = memoEditText.getText().toString();
-
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Get the user input from the EditTexts
+                String place = placeEditText.getText().toString();
+                String time = timeEditText.getText().toString();
+                String memo = memoEditText.getText().toString();
                 chapterEnter.removeView(chapterMakeView);
                 createChapter(place, time, memo,fragment);
             }
@@ -124,4 +132,3 @@ public class ScheduleDisplayActivity extends AppCompatActivity {
     }
 
 }
-
